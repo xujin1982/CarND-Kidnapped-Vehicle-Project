@@ -191,15 +191,15 @@ void ParticleFilter::updateWeights(double sensor_range, double std_landmark[],
         particles[i].weight = 1.0;
 
         for(int j=0;j<transform_ob.size();j++){
-            x_map = transform_ob[j].x;
-            y_map = transform_ob[j].y;
+            x_landmark = transform_ob[j].x;
+            y_landmark = transform_ob[j].y;
             id_map = transform_ob[j].id;
 
             ///*
             for(int k=0;k<predicted.size();k++){
                 if(predicted[k].id == id_map){
-                    x_landmark = predicted[k].x;
-                    y_landmark = predicted[k].y;
+                    x_map = predicted[k].x;
+                    y_map = predicted[k].y;
                     break;
                 }
             }
@@ -211,8 +211,8 @@ void ParticleFilter::updateWeights(double sensor_range, double std_landmark[],
             while(!flag && k<size_predicted){
                 if(predicted[k].id == id_map){
                     flag = true;
-                    x_landmark = predicted[k].x;
-                    y_landmark = predicted[k].y;
+                    x_map = predicted[k].x;
+                    y_map = predicted[k].y;
                 }
                 k++;
             }
